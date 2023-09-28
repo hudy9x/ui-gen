@@ -2,6 +2,7 @@ const replace = require("replace-in-file");
 const path = require("path");
 const fs = require("fs-extra");
 const express = require("express");
+const cors = require("cors");
 
 const resourceParentPath = path.join(__dirname, "./resources");
 const resourcePath = path.join(resourceParentPath, "tailwindui");
@@ -9,6 +10,25 @@ const app = express();
 const port = 3232;
 
 app.use(express.json());
+app.use(cors());
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
+
+app.use("/assets", express.static("resources"));
+
+app.get("/layout/:name", async (req, res, next) => {
+  try {
+    const name = req.params.name;
+    const html = fs.readFileSync(
+      path.join(resourcePath, `preview/${name}.html`)
+    );
+    res.json({ html: html.toString() });
+  } catch (error) {
+    res.status(500);
+  }
+});
 
 app.get("/layouts", async (req, res, next) => {
   const files = fs.readdirSync(resourcePath);
@@ -43,7 +63,9 @@ app.post("/generate", async (req, res, next) => {
 
       fs.copy(sourceFilePath, destinationPath);
 
-      importLinks.push(`import ${section} from '@/components/${section}'`);
+      const importUrl = `import ${section} from '@/components/${section}'`;
+
+      importLinks.includes(importUrl) ? null : importLinks.push(importUrl);
       components.push(`<${section} />`);
     });
 
@@ -80,5 +102,5 @@ app.post("/generate", async (req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port http://localhost:${port}`);
 });
