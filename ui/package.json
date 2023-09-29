@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "immer": "^10.0.2",
     "next": "latest",
     "react": "latest",
     "react-beautiful-dnd": "^13.1.1",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/node": "latest",
