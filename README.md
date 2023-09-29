@@ -32,9 +32,7 @@ $ yarn install
 Start all apps and enjoy it !
 
 ```
-$ cd ui-gen
-$ yarn start
+$ yarn backend
+$ yarn ui
 $ yarn preview
-$ cd ./ui
-$ yarn dev
 ```

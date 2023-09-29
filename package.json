@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --ignore demos/ --ignore .git/ --ignore resources/ index.js",
-    "preview": "cd demos/nextjs13 && yarn dev"
+    "backend": "nodemon --ignore demos/ --ignore .git/ --ignore resources/ index.js",
+    "preview": "cd demos/nextjs13 && yarn dev -p 3011",
+    "ui": "cd ui && yarn dev -p 3010"
   },
   "keywords": [],
   "author": "",

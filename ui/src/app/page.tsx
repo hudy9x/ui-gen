@@ -1,5 +1,6 @@
 import Content from "@/components/Content";
 import { MainProvider } from "@/components/MainContext";
+import Preview from "@/components/Preview";
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 
@@ -36,6 +37,7 @@ export default async function Home() {
       <MainProvider>
         <Sidebar layouts={layouts} />
         <Content />
+        <Preview />
       </MainProvider>
     </div>
   );
