@@ -6,6 +6,7 @@ interface IMainContext {
   page: string;
   addLayout: (name: string) => void;
   removeLayout: (index: number) => void;
+  swapLayout: (source: number, dest: number) => void;
 }
 
 const MainContext = createContext<IMainContext>({
@@ -16,6 +17,9 @@ const MainContext = createContext<IMainContext>({
   },
   removeLayout: () => {
     console.log(2);
+  },
+  swapLayout: () => {
+    console.log(3);
   },
 });
 
@@ -32,6 +36,15 @@ export const MainProvider = ({ children }: { children: ReactNode }) => {
   const removeLayout = (index: number) => {
     setLayouts((prev) => prev.filter((l, i) => (i === index ? false : true)));
   };
+  const swapLayout = (source: number, dest: number) => {
+    const clonedLayout = [...layouts];
+    const temp = clonedLayout[source];
+    clonedLayout[source] = clonedLayout[dest];
+    clonedLayout[dest] = temp;
+
+    setLayouts(clonedLayout);
+  };
+
   return (
     <MainContext.Provider
       value={{
@@ -39,6 +52,7 @@ export const MainProvider = ({ children }: { children: ReactNode }) => {
         page: "index",
         addLayout,
         removeLayout,
+        swapLayout,
       }}
     >
       <main className="flex">{children}</main>;

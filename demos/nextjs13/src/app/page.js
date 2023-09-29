@@ -1,32 +1,36 @@
 import Image from "next/image";
 
 {/*R_IMPORT_START*/}
-          import Footers1 from '@/components/Footers1'
-          import Footers10 from '@/components/Footers10'
-          import Footers2 from '@/components/Footers2'
-          import Footers3 from '@/components/Footers3'
-          import Footers4 from '@/components/Footers4'
-          import Footers5 from '@/components/Footers5'
-          import Footers6 from '@/components/Footers6'
-          import Footers7 from '@/components/Footers7'
+          import HeroSection10 from '@/components/HeroSection10'
+          import LogoClouds5 from '@/components/LogoClouds5'
+          import FeatureSection4 from '@/components/FeatureSection4'
+          import FeatureSection12 from '@/components/FeatureSection12'
+          import FeatureSection7 from '@/components/FeatureSection7'
+          import FeatureSection2 from '@/components/FeatureSection2'
+          import CTASection1 from '@/components/CTASection1'
+          import Testimonials8 from '@/components/Testimonials8'
+          import PricingSection13 from '@/components/PricingSection13'
+          import FAQs10 from '@/components/FAQs10'
+          import ContactSection3 from '@/components/ContactSection3'
           import Footers8 from '@/components/Footers8'
-          import Footers9 from '@/components/Footers9'
           {/*R_IMPORT_END*/}
 
 export default function Home() {
   return <>
 
 {/*R_CONTENT_START*/}
-          <Footers1 />
-          <Footers10 />
-          <Footers2 />
-          <Footers3 />
-          <Footers4 />
-          <Footers5 />
-          <Footers6 />
-          <Footers7 />
+          <HeroSection10 />
+          <LogoClouds5 />
+          <FeatureSection4 />
+          <FeatureSection12 />
+          <FeatureSection7 />
+          <FeatureSection2 />
+          <CTASection1 />
+          <Testimonials8 />
+          <PricingSection13 />
+          <FAQs10 />
+          <ContactSection3 />
           <Footers8 />
-          <Footers9 />
           {/*R_CONTENT_END*/}
     
     </>;

@@ -11,7 +11,7 @@ import { useMainContext } from "./MainContext";
 import ContentItem from "./ContentItem";
 
 export default function Content() {
-  const { layouts, removeLayout } = useMainContext();
+  const { layouts, removeLayout, swapLayout } = useMainContext();
 
   const onDelete = (index: number) => {
     removeLayout(index);
@@ -31,6 +31,11 @@ export default function Content() {
 
   const onDragEnd = (result: DropResult) => {
     console.log("onDragEnd", result);
+    const destIndex = result.destination?.index;
+    const sourceIndex = result.source.index;
+    if (destIndex === undefined) return;
+
+    swapLayout(sourceIndex, destIndex);
   };
 
   return (
